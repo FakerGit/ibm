@@ -1,0 +1,120 @@
+<?php require_once('mysql.func.php')?>
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户管理</title>
+</head>
+
+ 
+<body>
+<script src="../js/jquery-1.11.2.min.js">
+  </script>
+
+<h1>用户信息管理</h1>
+<hr noshade="noshade" />
+<div>
+<table  id="userList" align="left" border="2" cellpadding="10">    
+    <tr align="center">     
+    <td>id</td>     
+    <td>用户名</td>     
+    <td>密码</td>     
+    <td>性别</td>     
+    <td>邮箱</td>     
+    <td>操作</td>    
+    </tr> 
+<?php
+	$user_display=new Show;
+	$row=$user_display->display(2);
+	foreach($row as $user){
+		echo"
+			<tr>
+			<td>".$user['id']."</td>
+			<td>".$user['username']."</td>
+			<td>".$user['password']."</td>
+			<td>".$user['sex']."</td>
+			<td>".$user['email']."</td>
+			<td>
+			<button onclick='edit(".$user['id'].")'>修改</button>
+			<button onClick='del(".$user['id'].")'>删除</button>
+			</td>
+			</tr>";
+	}
+	echo "</table>";
+	
+	echo $user_display->pagebar();
+?>
+
+
+</div>
+<div>
+ <form action="doAdminAction.php?act=add" name="addForm" id="addForm" method="post">
+<table align="center" border="1" cellpadding="10">
+	<tr>
+    <td>用户名(*):<input type="text"  name="add_name" id="add_name"/> </td>
+    <td>密码(*)
+    <input type="text"  name="add_pwd" id="add_pwd"/> </td>
+    <td> 性别(*): 
+		<input type="text"  name="add_sex" id="add_sex"/></td>
+	<td>邮箱(*):
+		<input type="text"  name="add_mail" id="add_mail"/></td>
+     <td>
+     <input type="submit"  value="增加" /></td>
+     </tr>
+    </table>
+    </form>
+ </div>
+
+<script type="text/javascript">
+	$("#addForm").submit(
+		function (){
+			add_user();
+			return false;
+		}
+	);
+  	function add_user(){
+		if(confirm("确认增加？")){
+			var name=$("#add_name").val();
+			var pwd=$("#add_pwd").val();
+			var sex=$("#add_sex").val();
+			var mail=$("#add_mail").val();
+			var act="add";
+			$.ajax({
+				type:"POST",
+				url:"doAdminAction.php?",
+				data:"act="+act+"&name="+name+"&pwd="+pwd+"&sex="+sex+"&mail="+mail,beforeSend: function(){},
+				success:function(msg){
+					alert(msg);
+					if(msg==1){
+						alert('成功添加');
+					}else{
+						if(msg==2){
+							alert('没有填写完整的信息');
+						}else{
+							alert('添加失败');
+						}
+					}
+				}
+			});
+		}
+	}
+	
+	 function del(id){
+		 var user_id=id;
+		$.post("doAdminAction.php?act=delete",{user_id:user_id},function(msg){
+		if(msg == 1){
+			alert('删除成功!');
+			location.reload(true); 
+		}else{
+			alert('删除失败!');
+		}
+		});
+	}
+	
+	function edit(id)
+	{	
+		window.open("edit.php?id="+id,"newwindow","height=400, width=1200, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+	}
+  </script>
+</body>
+</html>

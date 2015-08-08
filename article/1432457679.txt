@@ -1,0 +1,34 @@
+<p class="MsoNormal" style="text-indent:21pt;">
+	<span>IBM</span>于<span>1964</span>年花费<span>50</span>亿美金开发出了<span>IBM SYSTEM/360</span>大型机，<span>1964</span>年<span>IBM</span>为美国<span>Airlines</span>提供<span>SABRE</span>系统；<span>1966</span>年<span>IBM</span>为社会保障管理机构提供管理系统；在<span>1969</span>年<span>Apollo 
+11</span>登月计划中，<span>IBM 
+S/360</span>更是大显身手。
+</p>
+<p class="MsoNormal" style="text-indent:21pt;">
+	<span>1990</span>年<span>9</span>月<span>5</span>日，<span>IBM</span>召开了一次<span>25</span>年来最大的产品发布会，推出了<span>S/390</span>。
+</p>
+<p class="MsoNormal" style="text-indent:21pt;">
+	<span>2000</span>年<span>10</span>月，<span>IBM</span>推出经过全新设计的大型机<span>eServer z900</span>。<span>z</span>系统列的意思是永不宕<span>(dang)</span>机<span>(zero)</span>，这是<span> IBM </span>第一款以电子商务为目的打造的企业级大型机。它以无以伦比的可靠性和安全性将大型机的性能和连接能力再次推至新高。为了更好的满足客户的不可预测性，业务的灵活性，以及高效的电子商务需求，<span>eServer 
+z900 </span>拥有<span> HiperSockets </span>高速互连技术。提供了行业第一个能够实现线速度每秒钟<span> 1GB</span>的全新的、更高性能的千兆位以太网功能。更重要的是它具有自优化和自恢复功能，可以有效的对资源进行管理，充分满足您电子商务的目标。<span>IBM 
+eServer z900</span>对众多平台和操作系统地支持更是为客户选择、创建和部署自己所需的应用提供完美的灵活性。
+</p>
+<p class="MsoNormal" style="text-indent:24pt;">
+	<span>IBM 
+zSeries</span>机器有五种型号：<span>800, 
+890, 900, 990</span>和<span>z9</span>。<span> </span>
+</p>
+<p class="MsoNormal" style="text-indent:24pt;">
+	<span>2003</span>年<span>5</span>月<span>IBM</span>又推出了<span>IBM 
+eServer</span>家族旗舰产品<span>eServer z990</span>。该产品的扩展能力可将随需应变的优势赋予不同规模的企业，可以帮助您根据需要定制系统规模，让您更好地控制您的<span>IT</span>成本。同时，<span>eServer 
+z990</span>还拥有行业领先的虚拟、自动化、可扩展性、安全性和可靠性特性。
+</p>
+<p class="MsoNormal" style="text-indent:24pt;">
+	<span>2004</span>年<span>4</span>月<span>IBM</span>又推出了拥有高端技术和诱惑力价格的<span>eServer z890</span>，它是传承了<span>eServer 
+z990 </span>的主要技术，并保持与<span>eServer 
+z990 </span>同步的技术更新。与<span>eServer 
+z990</span>相比<span>eServer 
+z 890 </span>提供了主机前所未有更大的灵活性。虽然它与<span>eServer 
+z800</span>一样是面向中型企业，但是<span>eServer 
+z 890</span>的处理能力却是<span>eServer 
+z 800</span>的两倍，而价格是历史最低的<span>20</span>万美元。显然，<span>eServer 
+z890</span>能为客户创建随需应变的基础设施，并进一步降低成本。<span>&nbsp; &nbsp;</span>
+</p>

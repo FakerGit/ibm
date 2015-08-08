@@ -1,0 +1,9 @@
+<p>
+	正文
+</p>
+<p>
+	<strong>正文</strong>
+</p>
+<p>
+	<span style="color:#E53333;">正文</span>
+</p>

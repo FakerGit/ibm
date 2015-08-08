@@ -1,0 +1,62 @@
+<?php require_once('Connections/weblib.php'); ?>
+
+<?php
+	
+	$username = $_POST["username"];
+	$sql = "select * from users where username = '$username'";
+	$result = mysql_query($sql);
+	$num = mysql_num_rows($result);
+	if($num>0){
+		echo "1";
+	}
+/*<?php  
+    /*if(isset($_POST["submit"]))  
+    {  
+		echo "提交成功";
+        $user = $_POST["username"];  
+        $pwd = $_POST["password"];
+		$mail = $_POST["mail"];
+		$repwd = $_POST["repwd"];  
+        if($user == "")  
+        {  
+            echo "<script>alert('用户名不能为空！'); history.go(-1);</script>";  
+        }
+		if($pwd == "")  
+        {  
+            echo "<script>alert('密码不能为空！'); history.go(-1);</script>";  
+        }
+		if($mail == "")  
+        {  
+            echo "<script>alert('邮箱不能为空！'); history.go(-1);</script>";  
+        }
+		if($pwd != $pwd)  
+        {  
+            echo "<script>alert('两次输入密码不一致！'); history.go(-1);</script>";  
+        }
+        else  
+        {  
+            $sql = "select * from users where username = '$user'";  
+            $result = mysql_query($sql);  
+            $num = mysql_num_rows($result);  
+            if($num)  
+            {  
+				 $row=mysql_fetch_array($result);
+				 if($pwd===$row['password']){ //对密码进行判断。
+			     echo "登陆成功，正在为你跳转至后台页面";
+  				 header("location:index.php");
+ 			    }else{
+					echo "<script>alert('密码不正确！');history.go(-1);</script>"; 
+  	           }  
+			}
+            else  
+            {  
+                echo "<script>alert('用户名不存在！');history.go(-1);</script>";  
+            }  
+        }  
+    }  
+    else  
+    {  
+        echo "<script>alert('提交未成功！'); history.go(-1);</script>";  
+    }  
+  */
+?>

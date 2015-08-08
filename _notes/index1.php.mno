@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_recent_article" value="name:id;datatype:int,name:date;datatype:datetime,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob" />
+	<infoitem key="UD_recent_article2" value="name:id;datatype:int,name:date;datatype:datetime,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob" />
+	<infoitem key="UD_recent_article3" value="name:id;datatype:int,name:date;datatype:datetime,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob" />
+	<infoitem key="UD_recent_article4" value="name:id;datatype:int,name:date;datatype:datetime,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob" />
+	<infoitem key="UD_technology1" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime" />
+	<infoitem key="UD_qusetion_a1" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime" />
+	<infoitem key="UD_story1" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime" />
+</info>

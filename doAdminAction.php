@@ -1,0 +1,45 @@
+<?php
+	require_once('mysql.func.php');
+	$act=$_POST['act'];
+	if($act=="delete"){
+		$user_id=$_POST['uid'];
+		delete_user($user_id);
+	}
+	if($act=="edit"){
+		$id=$_POST['uid'];
+		$username = $_POST['username'];  
+        $pwd = $_POST['pwd'];
+		$sex = $_POST['sex'];
+		$email = $_POST['email']; 
+		$user=array($id,$username,$pwd,$sex,$email);
+		update_user($user);
+	}
+	if($act=="add"){
+		$username = $_POST['name'];
+        $pwd = $_POST['pwd'];
+		$sex = $_POST['sex'];
+		$email = $_POST['email']; 
+		$user=array($username,$sex,$email,$pwd);
+		$flag=true;
+		for($i=0;$i<4;$i++)
+		{
+			//数据为空时提示
+			if($user[$i]==null)
+			{	
+				echo 2;
+				$flag=false;
+				break;
+			}
+		}
+		if($flag)
+			add_user($user);
+		}
+	if($act="save"){
+		$uid=$_POST['uid'];
+		$pwd = $_POST['pwd'];
+		$sex = $_POST['sex'];
+		$email = $_POST['email']; 
+		$user=array($sex,$email,$pwd,$uid);
+		save($user);
+	}
+?>

@@ -1,0 +1,272 @@
+<?php require_once('Connections/weblib.php'); ?>
+<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+mysql_select_db($database_weblib, $weblib);
+$query_Technology1 = "SELECT * FROM technology order by id desc limit 1";
+$Technology1 = mysql_query($query_Technology1, $weblib) or die(mysql_error());
+$row_Technology1 = mysql_fetch_assoc($Technology1);
+$totalRows_Technology1 = mysql_num_rows($Technology1);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Technology2 = "SELECT * FROM technology  order by id desc limit 1,1";
+$Technology2 = mysql_query($query_Technology2, $weblib) or die(mysql_error());
+$row_Technology2 = mysql_fetch_assoc($Technology2);
+$totalRows_Technology2 = mysql_num_rows($Technology2);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Technology3 = "SELECT * FROM technology order by id desc limit 2,1";
+$Technology3 = mysql_query($query_Technology3, $weblib) or die(mysql_error());
+$row_Technology3 = mysql_fetch_assoc($Technology3);
+$totalRows_Technology3 = mysql_num_rows($Technology3);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Technology4 = "SELECT * FROM technology order by id desc limit 3,1";
+$Technology4 = mysql_query($query_Technology4, $weblib) or die(mysql_error());
+$row_Technology4 = mysql_fetch_assoc($Technology4);
+$totalRows_Technology4 = mysql_num_rows($Technology4);
+?>
+<!DOCTYPE <html>
+<html>
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <title>主机技术 | 大型主机科普网站</title> 
+  <meta name="keywords" content="" /> 
+  <meta name="description" content="" /> 
+  <link type="text/css" rel="stylesheet" href="css/style.css" /> 
+ </head> 
+ <body> 
+  <div id="topBar"> 
+   <div class="wrapper"> 
+    <div class="l">
+     您好，欢迎访问大型主机科普网站！
+    </div> 
+    <div class="r"> 
+     <a href="#" onclick="window.external.AddFavorite(location.href,'');">加入收藏</a> 
+     <a href="#" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage(location.href);">设为首页</a> 
+     <span> <a href="" target="_blank">登录</a>| <a href="" target="_blank">注册</a>| <a href="" target="_blank">管理员入口</a> </span> 
+    </div> 
+   </div> 
+  </div> 
+  <div id="header"> 
+   <div class="wrapper"> 
+    <div class="logo"> 
+     <a href="/"><img src="images/logo3.png" alt="大型主机科普网站" /></a> 
+    </div> 
+   </div> 
+  </div> 
+  <div id="nav"> 
+   <ul> 
+    <li><a href="index.html" class="a1">首页</a></li> 
+    <li><a href="recent.php" class="a2">科技快讯</a></li> 
+    <li><a href="technology.php" class="a3">主机技术</a></li> 
+    <li><a href="medias.php" class="a4">科普乐园</a></li> 
+    <li><a href="q_a.php" class="a5">知识问答</a></li> 
+    <form class="search" method="get" action="" target="_blank"> 
+     <p> <input class="searchTxt" value="" maxlength="30" name="wd" type="text" style="background-image:url('images/search_bg.png') " /> <input src="images/search_icon.png" class="search_icon" name="" type="image" /> </p> 
+    </form> 
+   </ul> 
+  </div> 
+  <script type="text/javascript">
+function select_search_type(n){
+	document.getElementById('search_type1').className='';
+	document.getElementById('search_type2').className='';
+	document.getElementById('search_type3').className='';
+	document.getElementById('search_type'+n).className='current';
+	document.getElementById('search_type').value=n;
+}
+</script> 
+  <div id="main"> 
+   <div id="page"> 
+    <div class="pageLeft"> 
+     <div id="techMenu"> 
+     </div> 
+     <div id="left_history"> 
+      <ul> 
+       <li class="first"><a href="#" class="a1"></a></li> 
+       <li><a href="#" class="a2"></a></li> 
+       <li><a href="#" class="a3"></a></li> 
+       <li><a href="#" class="a4"></a></li> 
+       <li><a href="#" class="a5"></a></li> 
+       <li><a href="#" class="a6"></a></li> 
+       <li><a href="#" class="a7"></a></li> 
+       <li><a href="#" class="a8"></a></li> 
+       <li><a href="#" class="a9"></a></li> 
+      </ul> 
+     </div> 
+	 <div class="map2">
+	 <a target="_blank" href="http://j.map.baidu.com/f_v1z" ><img src="images/ditu.png" /></a>
+	 </div>
+    </div> 
+    <div class="pageRight"> 
+      <div class="title_pic"> 
+       <img src="images/tech_pic.png" /> 
+      </div> 
+<div id="current">
+   所在位置：&nbsp;&nbsp;
+   <a href="" class="curr">首页</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+   <a href="" class="curr">主机技术</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+   <a href="" class="curr">主机体系</a>
+  </div>
+      <div id="techMain"> 
+       <div class="glist"> 
+        <div class="gimg">
+         <a href="" target="_blank"><img src="images/i4.jpg" height="93" width="145" /></a>
+        </div> 
+        <div class="gtitle"> 
+         <p class="strong"><a href="" target="_blank"><?php echo $row_Technology1['title']; ?></a></p> 
+         <p><?php echo $row_Technology1['introduction']; ?></p> 
+        </div> 
+       </div> 
+       <div class="glist"> 
+        <div class="gimg">
+         <a href="" target="_blank"><img src="images/i4.jpg" height="93" width="145" /></a>
+        </div> 
+        <div class="gtitle"> 
+         <p class="strong"><a href="" target="_blank"><?php echo $row_Technology2['title']; ?></a></p> 
+         <p><?php echo $row_Technology2['introduction']; ?></p> 
+        </div> 
+       </div> 
+       <div class="glist"> 
+        <div class="gimg">
+         <a href="" target="_blank"><img src="images/i4.jpg" height="93" width="145" /></a>
+        </div> 
+        <div class="gtitle"> 
+         <p class="strong"><a href="" target="_blank">LPAR技术</a></p> 
+         <p>在一个大型主机物理机柜中，根据硬件资源（CPU、Memory、I/O）逻辑地划分成多个分区（LPAR）,在各分区中各自运行一套独立的操作系统...</p> 
+        </div> 
+       </div> 
+       <div class="glist"> 
+        <div class="gimg">
+         <a href="" target="_blank"><img src="images/i4.jpg" height="93" width="145" /></a>
+        </div> 
+        <div class="gtitle"> 
+         <p class="strong"><a href="" target="_blank">1.2.5Parallel Sysplex技术</a></p> 
+         <p>arallel Sysplex，即并行系统综合体是由多台主机、多个LPAR、多个系统（如Z/0S）有机耦合起来的系统，它们可以面向一个共同的对象...</p> 
+        </div> 
+       </div> 
+       <div class="glist"> 
+        <div class="gimg">
+         <a href="" target="_blank"><img src="images/i4.jpg" height="93" width="145" /></a>
+        </div> 
+        <div class="gtitle"> 
+         <p class="strong"><a href="" target="_blank">HiperSockets技术</a></p> 
+         <p>HiperSockets技术又称为内存中的TCP/IP网络，使用 millecode 微码实现并且使用内存作为传输介质，可以为不同逻辑分区中的应用程序提供直接的高速连接...</p> 
+        </div> 
+       </div> 
+       <div class="glist"> 
+        <div class="gimg">
+         <a href="" target="_blank"><img src="images/i4.jpg" height="93" width="145" /></a>
+        </div> 
+        <div class="gtitle"> 
+         <p class="strong"><a href="" target="_blank">虚拟化技术</a></p> 
+         <p>云计算可谓是当前最流行的语汇，其实现的基础在于虚拟化技术的应用，而早在几十年年前，IBM已经开始在大型主机上研究和实践虚拟技术，譬如前文讲述的LPAR技术就是...</p> 
+        </div> 
+       </div> 
+       <div class="glist"> 
+        <div class="gimg">
+         <a href="" target="_blank"><img src="images/i4.jpg" height="93" width="145" /></a>
+        </div> 
+        <div class="gtitle"> 
+         <p class="strong"><a href="" target="_blank">GDPS技术</a></p> 
+         <p>IBM在并行系统综合体架构之上，提出了世界上最先进的灾难备份架构：GDPS （ Geographically Dispersed Parallel Sysplex），这种架构广泛应用在银行、军事等行业或部门...</p> 
+        </div> 
+       </div> 
+      </div> 
+      <!-- 以下是来自明智科普网的分页js --> 
+       <div class="itemC"> 
+       <script language="JavaScript"> <!-- 
+            function createPageHTML(_nPageCount, _nCurrIndex, _sPageName, _sPageExt){ 
+            if(_nPageCount == null || _nPageCount<=1){ 
+            return;
+            }
+            var nCurrIndex = _nCurrIndex || 0;
+            for(var i=0; i<_nPageCount; i++){
+            var sPageName = (i == 0 ? _sPageName : (_sPageName+"_" + i)) + "."+_sPageExt;
+            if(nCurrIndex == i){ document.write((i+1) + "&nbsp;");
+            }else{ document.write("<a href='" + sPageName + "' class='current'>"+(i+1)+"</a>&nbsp;");
+            }
+            }
+            } 
+            //WCM置标 
+            createPageHTML(0, 0, "index", "html");
+            
+            </script>1&nbsp;
+       <a href="#" class="current">2</a>&nbsp;
+       <a href="#" class="current">3</a>&nbsp;
+       <a href="#" class="current">4</a>&nbsp;
+       <a href="#" class="current">5</a>&nbsp;
+       <a href="#" class="current">6</a>&nbsp;
+       <a href="#" class="current">7</a>&nbsp;
+       <a href="#" class="current">8</a>&nbsp;
+       <a href="#" class="current">9</a>&nbsp;
+       <a href="#" class="current">10</a>&nbsp; 
+      </div>
+      <!-- 以上是来自明智科普网的分页js --> 
+    </div> 
+    <div class="clearit"></div> 
+   </div> 
+  </div> 
+  <div id="footer"> 
+   <div class="nav"> 
+    <ul> 
+     <li class="jianjie"><a href="#" class="a1">华工IBM中心简介</a></li> 
+     <li><a href="#" class="a2">网站简介</a></li> 
+     <li><a href="#" class="a3">联系我们</a></li> 
+     <li><a href="#" class="a4">留言建议</a></li> 
+     <li><a href="#" class="a5">友情链接</a></li> 
+    </ul> 
+   </div> 
+   <!-- 		<div class="friendlink">
+		<ul>
+		<li><a href="#" class="a1">科学松鼠会</a></li>
+		<li><a href="#" class="a2">蝌蚪五线谱</a></li>
+		<li><a href="#" class="a3">中国科普网</a></li>
+		<li><a href="#" class="a4"></a></li>
+		</ul>
+		</div> --> 
+   <!-- 		<div class="copyright">
+			<div class="l">&copy; Copyright &copy; 2014.</div>
+		</div> --> 
+  </div> 
+  <a href="#" title="返回顶部" id="goTop"></a>   
+ </body>
+</html>
+<?php
+mysql_free_result($Technology1);
+
+mysql_free_result($Technology2);
+
+mysql_free_result($Technology3);
+
+mysql_free_result($Technology4);
+?>

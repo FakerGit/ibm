@@ -1,0 +1,438 @@
+<?php require_once('Connections/weblib.php'); ?>
+<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+mysql_select_db($database_weblib, $weblib);
+$query_recent_article1 = "SELECT * FROM article where module=1 Order by aid desc limit 1";
+$recent_article1 = mysql_query($query_recent_article1, $weblib) or die(mysql_error());
+$row_recent_article1 = mysql_fetch_assoc($recent_article1);
+$totalRows_recent_article1 = mysql_num_rows($recent_article1);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Recent_article2 = "SELECT * FROM article where module=1 and status=3 order by aid desc limit 1,2";
+$Recent_article2 = mysql_query($query_Recent_article2, $weblib) or die(mysql_error());
+$row_Recent_article2 = mysql_fetch_assoc($Recent_article2);
+$totalRows_Recent_article2 = mysql_num_rows($Recent_article2);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Recent_article3 = "SELECT * FROM article where module=1 and status=3 ORDER BY aid desc limit 2,1";
+$Recent_article3 = mysql_query($query_Recent_article3, $weblib) or die(mysql_error());
+$row_Recent_article3 = mysql_fetch_assoc($Recent_article3);
+$totalRows_Recent_article3 = mysql_num_rows($Recent_article3);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Recent_article4 = "SELECT * FROM article where module=1 and status=3 ORDER BY aid desc limit 3,1";
+$Recent_article4 = mysql_query($query_Recent_article4, $weblib) or die(mysql_error());
+$row_Recent_article4 = mysql_fetch_assoc($Recent_article4);
+$totalRows_Recent_article4 = mysql_num_rows($Recent_article4);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Technology1 = "SELECT * FROM article where module=2 and status=3 order by aid desc limit 1";
+$Technology1 = mysql_query($query_Technology1, $weblib) or die(mysql_error());
+$row_Technology1 = mysql_fetch_assoc($Technology1);
+$totalRows_Technology1 = mysql_num_rows($Technology1);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Technology2 = "SELECT * FROM article where module=2 and status=3 ORDER BY aid desc limit 1,1";
+$Technology2 = mysql_query($query_Technology2, $weblib) or die(mysql_error());
+$row_Technology2 = mysql_fetch_assoc($Technology2);
+$totalRows_Technology2 = mysql_num_rows($Technology2);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Technology3 = "SELECT * FROM article where module=2 and status=3 ORDER BY aid desc limit 2,1";
+$Technology3 = mysql_query($query_Technology3, $weblib) or die(mysql_error());
+$row_Technology3 = mysql_fetch_assoc($Technology3);
+$totalRows_Technology3 = mysql_num_rows($Technology3);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Question1 = "SELECT * FROM article where module=4 and status=3 order by aid desc limit 1";
+$Question1 = mysql_query($query_Question1, $weblib) or die(mysql_error());
+$row_Question1 = mysql_fetch_assoc($Question1);
+$totalRows_Question1 = mysql_num_rows($Question1);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Question2 = "SELECT * FROM article where module=4 and status=3 order by aid desc limit 1,2";
+$Question2 = mysql_query($query_Question2, $weblib) or die(mysql_error());
+$row_Question2 = mysql_fetch_assoc($Question2);
+$totalRows_Question2 = mysql_num_rows($Question2);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Question3 = "SELECT * FROM article where module=4 and status=3 ORDER BY aid desc limit 2,1";
+$Question3 = mysql_query($query_Question3, $weblib) or die(mysql_error());
+$row_Question3 = mysql_fetch_assoc($Question3);
+$totalRows_Question3 = mysql_num_rows($Question3);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Stories1 = "SELECT * FROM article where module=3 and status=3 order by aid desc limit 1";
+$Stories1 = mysql_query($query_Stories1, $weblib) or die(mysql_error());
+$row_Stories1 = mysql_fetch_assoc($Stories1);
+$totalRows_Stories1 = mysql_num_rows($Stories1);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Stories2 = "SELECT * FROM article where module=3 and status=3 order by aid desc limit 1,1";
+$Stories2 = mysql_query($query_Stories2, $weblib) or die(mysql_error());
+$row_Stories2 = mysql_fetch_assoc($Stories2);
+$totalRows_Stories2 = mysql_num_rows($Stories2);
+
+mysql_select_db($database_weblib, $weblib);
+$query_Stories3 = "SELECT * FROM article where module=3 and status=3 order by aid desc limit 2,1";
+$Stories3 = mysql_query($query_Stories3, $weblib) or die(mysql_error());
+$row_Stories3 = mysql_fetch_assoc($Stories3);
+$totalRows_Stories3 = mysql_num_rows($Stories3);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>大型主机科普网站</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="topBar">
+	<div class="wrapper">
+		<div class="l">您好，欢迎访问大型主机科普网站！</div>
+		<div class="r">
+			<a href="#" onclick="window.external.AddFavorite(location.href,'');">加入收藏</a>
+			<a href="#" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage(location.href);">设为首页</a>
+			<span>
+			<a href="login.php" target="_self">登录</a>|
+			<a href="register.php" target="_self">注册</a>|
+			<a href="manager.html" target="_blank">管理员入口</a>
+            <a href="apply/apply.php" target="_blank">报名参观</a>
+			</span>
+		</div>
+	</div>
+</div>
+<div id="header">
+	<div class="wrapper">
+		<div class="logo">
+			<a href="/"><img src="images/logo3.png" alt="大型主机科普网站" /></a>
+		</div>
+	</div>
+</div>
+<div id="nav">
+<ul>
+  <li><a href="index.html" class="a1">首页</a></li>
+  <li><a href="recent.php" class="a2">科技快讯</a></li>
+  <li><a href="technology.php" class="a3">主机技术</a></li>
+  <li><a href="q_a.php" class="a4">科普乐园</a></li>
+  <li><a href="stories.html" class="a5">知识问答</a></li>
+  <form class="search" method="get" action="search.php" target="_blank">
+    <p>
+      <input class="searchTxt" value="" maxlength="30" name="wd" type="text" style="background-image:url('images/search_bg.png') " />
+      <input src="images/search_icon.png" class="search_icon" name="input" type="image" />
+    </p>
+  </form>
+</ul>
+</div>
+<script type="text/javascript">
+function select_search_type(n){
+	document.getElementById('search_type1').className='';
+	document.getElementById('search_type2').className='';
+	document.getElementById('search_type3').className='';
+	document.getElementById('search_type'+n).className='current';
+	document.getElementById('search_type').value=n;
+}
+</script>
+<div id="main">
+	<div id="index">
+		<div class="topLeft">
+			<div class="itemA" id="banner"></div>
+<script type="text/javascript" src="js/flashObject.js"></script>
+<script type="text/javascript">
+	var flash = new sohuFlash("flash/banner.swf", "20", 730, 300, "7");//新建一个FlashObject对象
+	flash.addParam("quality", "high");<!-- addParam: function(name, value) {this.params[name] = value} -->
+	flash.addParam("wmode", "transparent");
+	flash.addVariable("image","images/flashfocus0.jpg|images/flashfocus1.jpg|images/flashfocus2.jpg|images/flashfocus3.jpg");//载入图片
+	flash.addVariable("stitle","点击转到图一|点击转到图二|点击转到图三|点击转到图四");//左边
+	flash.addVariable("info", "<p><?php echo $row_recent_article1['title']; ?></p>|<p><?php echo $row_Technology1['title']; ?></p>|<p><?php echo $row_Question1['title']; ?></p>|<p><?php echo $row_Stories1['title']; ?></p>");//添加文字简单介绍
+	flash.addVariable("stopTime","3000");//停留时间为3秒
+	flash.write("banner");
+</script>
+			<div class="itemB">
+				<div class="player" id="picPlayer">
+<script type="text/javascript">
+	var pic_width = 300; //图片宽度
+	var pic_height = 200; //图片高度
+	var button_pos = 4; //按扭位置 1左 2右 3上 4下
+	var stop_time = 5000; //图片停留时间(1000为1秒钟)
+	var show_text = 1; //是否显示文字标签 1显示 0不显示
+	var txtcolor = "444444"; //文字色
+	var bgcolor = "ffffff"; //背景色
+	var imag = new Array(); //图片-数组
+	var link = new Array(); //链接-数组
+	var text = new Array();	//文字-数组
+	//哗啦啦的图片+链接+文字组合
+	imag[1] = "<?php echo $row_Recent_article4['pic']; ?>";
+	link[1] = "";
+	text[1] = "图一";
+	
+	imag[2] = "images/p2.jpg";
+	link[2] = "";
+	text[2] = "图二";
+	
+	imag[3] = "images/p3.jpg";
+	link[3] = "";
+	text[3] = "图三";
+	
+	imag[4] = "images/p4.jpg";
+	link[4] = "";
+	text[4] = "图四";
+	
+	var swf_height = show_text == 1 ? pic_height + 45 : pic_height;
+	var pics = "", links = "", texts = "";
+	
+	for (var i = 1; i < imag.length; i++) {
+		pics = pics + ("|" + imag[i]);
+		links = links + ("|" + link[i]);
+		texts = texts + ("|" + text[i]);
+	}
+	
+	pics = pics.substring(1);
+	links = links.substring(1);
+	texts = texts.substring(1);
+	
+	//输出的内容
+	document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="" width="' + pic_width + '" height="' + swf_height + '">');
+	document.write('<param name="movie" value="flash/focus.swf">');
+	document.write('<param name="quality" value="high">');
+	document.write('<param name="wmode" value="transparent">');
+	document.write('<param name="FlashVars" value="pics=' + pics + '&links=' + links + '&texts=' + texts + '&pic_width=' + pic_width + '&pic_height=' + pic_height + '&show_text=' + show_text + '&txtcolor=' + txtcolor + '&bgcolor=' + bgcolor + '&button_pos=' + button_pos + '&stop_time=' + stop_time + '">');
+	document.write('<embed src="flash/focus.swf" wmode="transparent" FlashVars="pics=' + pics + '&links=' + links + '&texts=' + texts + '&pic_width=' + pic_width + '&pic_height=' + pic_height + '&show_text=' + show_text + '&txtcolor=' + txtcolor + '&bgcolor=' + bgcolor + '&button_pos=' + button_pos + '&stop_time=' + stop_time + '" quality="high" width="' + pic_width + '" height="' + swf_height + '" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
+	document.write('</object>');
+</script>			
+				</div>
+				<div class="list">
+				<div class="more"><a href="#"><img src="images/kuaixun_more.png" href="#"/></a></div>
+					<dl>
+					<h2><a href="articlebrowse.php?aid=<?php echo $row_recent_article1['aid'] ?>" target="_blank"><?php echo $row_recent_article1['title']; ?></a></h2>
+						<strong>[最新资讯]<a href="articlebrowse.php?aid=<?php echo $row_recent_article1['aid'] ?>" target="_blank"><?php echo $row_recent_article1['introduction']; ?></a></strong>
+						<p><a href="" target="_blank">[全文]</a></p>
+					</dl>
+					<ul>
+                    	<li><a target="_blank" href="articlebrowse.php?aid=<?php echo $row_recent_article1['aid'] ?>"><?php echo $row_recent_article1['title']; ?></a></li>
+                        <li><a target="_blank" href="articlebrowse.php?aid=<?php echo $row_recent_article2['aid'] ?>"><?php echo $row_Recent_article2['title']; ?></a></li>
+                        <li><a target="_blank" href="articlebrowse.php?aid=<?php echo $row_recent_article3['aid'] ?>"><?php echo $row_Recent_article3['title']; ?></a></li>
+                        <li><a target="_blank" href="articlebrowse.php?aid=<?php echo $row_recent_article4['aid'] ?>"><?php echo $row_Recent_article4['title']; ?></a></li>
+                    </ul>
+				</div>
+			</div>
+
+
+		</div>
+		<div class="topRight">
+  			<div class="itemA">
+				<h3>主机图片</h3>
+			</div> 
+            <?php
+				$sql_images="select * from images order by rand() limit 2";
+				$result_images = mysql_query($sql_images);
+				$row_image1=mysql_fetch_array($result_images);
+				$row_image2=mysql_fetch_array($result_images);
+			?> 
+            
+ 			<div class="itemB">
+				<a href=""><img src="<?php echo $row_image1['source']; ?>" /></a>
+				<a href=""><img src="<?php echo $row_image2['source'];?>" /></a>
+			</div>  
+			<div class="itemE">
+				 <a target="_blank" href="http://j.map.baidu.com/f_v1z" ><img src="images/ditu.png" /></a>
+			</div>
+		</div>
+	</div>
+	
+	<div id="mid">
+		<div class="midLeft">
+ 		 	<div class="itemC">
+			 	<div class="Gs6a">
+			 		<div class="GsL">
+<!-- 						<div class="classname"><a href="">主机技术 <span style="font-size: 14px">TECHNOLOTY</span></a></div> -->
+ 						<div class="more"><a href="#"><img src="images/jishu_more.png" href="#"/></a></div>
+					</div>
+				
+					<div class="glist">
+						<div class="gimg" ><a href="" target="_blank"><img src="images/i4.jpg" height="100" width="140"></a></div>
+						<div class="gtitle" >
+							<p class="strong"><a href="articlebrowse.php?aid=<?php echo $row_Technology1['aid'] ?>" target="_blank"><?php echo $row_Technology1['title']; ?></a></p>
+							<p><?php echo $row_Technology1['introduction']; ?></p>
+						</div>
+					</div>
+					<div class="gglist">
+					<ul>
+						<li class="border"><span class="left"><a href="articlebrowse.php?aid=<?php echo $row_Technology2['aid'] ?>"><?php echo $row_Technology2['title']; ?></a></span><span class="right">5-19</span></li>
+						<li><span class="left"><a href="articlebrowse.php?aid=<?php echo $row_Technology3['aid'] ?>"><?php echo $row_Technology3['title']; ?></a></span><span class="right">5-19</span></li>
+					</ul>
+					</div>
+				
+ 		 	 	</div>
+			</div> 
+
+			<div class="itemF">
+			 	<div class="Gs6a">
+			 		<div class="GsL">
+<!-- 						<div class="classname"><a href="">主机趣闻 <span style="font-size: 14px">STOREIS</span></a></div>-->
+						<div class="more"><a href="#"><img src="images/quwen_more.png" href="#"/></a></div>
+					</div>
+				
+					<div class="glist">
+						<div class="gimg" ><a href="" target="_blank"><img src="images/i4.jpg" height="100" width="140"></a></div>
+						<div class="gtitle" >
+							<p class="strong"><a href="articlebrowse.php?aid=<?php echo $row_Stories1['aid'] ?>" target="_blank"><?php echo $row_Stories1['title']; ?></a></p>
+							<p><?php echo $row_Stories1['introduction']; ?></p>
+						</div>
+					</div>
+					<div class="gglist">
+					<ul>
+						<li class="border"><span class="left"><a href="articlebrowse.php?aid=<?php echo $row_Stories2['aid'] ?>"><?php echo $row_Stories2['title']; ?></a></span><span class="right">5-19</span></li>
+						<li><span class="left"><a href="articlebrowse.php?aid=<?php echo $row_Stories3['aid'] ?>"><?php echo $row_Stories3['title']; ?></a></span><span class="right">5-19</span></li>
+					</ul>
+					</div>
+				
+ 		 	 	</div>
+			</div> 
+		</div>
+		
+		
+		<div class="midRight">
+ 		 	<div class="itemC">
+			 	<div class="Gs6a">
+			 		<div class="GsL">
+<!-- 						<div class="classname"><a href="">主机问答 <span style="font-size: 14px">QUESTION &amp; ANSWER</span></a></div> -->
+						<div class="more"><a href="#"><img src="images/wenda_more.png" href="#"/></a></div>
+					</div>
+				
+					<div class="glist">
+						<div class="gimg" ><a href="" target="_blank"><img src="images/i4.jpg" height="100" width="140"></a></div>
+						<div class="gtitle" >
+							<p class="strong"><a href="articlebrowse.php?aid=<?php echo $row_Question1['aid'] ?>" target="_blank"><?php echo $row_Question1['title']; ?></a></p>
+							<p><?php echo $row_Question1['introduction']; ?></p>
+						</div>
+					</div>
+					<div class="gglist">
+					<ul>
+						<li class="border"><span class="left"><a href="articlebrowse.php?aid=<?php echo $row_Question2['aid'] ?>"><?php echo $row_Question2['title']; ?></a></span><span class="right">5-19</span></li>
+						<li><span class="left"><a href="articlebrowse.php?aid=<?php echo $row_Question3['aid'] ?>"><?php echo $row_Question3['title']; ?></a></span><span class="right">5-19</span></li>
+					</ul>
+					</div>
+				
+ 		 	 	</div>
+			</div> 
+
+			<div class="itemF">
+			 	<div class="Gs6a c1">
+			 		<div class="GsL">
+<!-- 						<div class="classname"><a href="">主机推荐 <span style="font-size: 14px">Recommended Resources</span></a></div>-->
+						<div class="more"><a href="#"><img src="images/tuijian_more.png" href="#"/></a></div>
+					</div>
+				 	
+					<ul class="cl">
+						<li>
+							<p><a href="" target="_blank"><img width="80" height="85" src="images/tuijian.jpg"></a></p>
+							<p class="subject"><a href="" target="_blank">《推荐图书》&nbsp;</a></p>
+						</li>
+						<li>
+							<p><a href="" target="_blank"><img width="80" height="85" src="images/tuijian.jpg"></a></p>
+							<p class="subject"><a href="" target="_blank">《推荐图书》&nbsp;</a></p>
+						</li>
+						<li>
+							<p><a href="" target="_blank"><img width="80" height="85" src="images/tuijian.jpg"></a></p>
+							<p class="subject"><a href="" target="_blank">《推荐图书》&nbsp;</a></p>
+						</li>
+					</ul>
+					<div class="gglist">
+					<ul>
+						<li class="border"><span class="left"><a href="">主机技术</a></span><span class="right">5-19</span></li>
+						<li><span class="left"><a href="">主机技术</a></span><span class="right">5-19</span></li>
+					</ul>
+					</div>
+					
+ 		 	 	</div>
+			</div> 
+		</div>
+		</div>
+		<div class="clearit"></div>
+</div>
+
+ 	<div id="footer">
+		<div class="nav">
+		<ul>
+		<li class="jianjie"><a href="#" class="a1">华工IBM中心简介</a></li>
+		<li><a href="#" class="a2">网站简介</a></li>
+		<li><a href="#" class="a3">联系我们</a></li>
+		<li><a href="message.php" class="a4">留言建议</a></li>
+		<li><a href="#" class="a5">友情链接</a></li>
+		</ul>
+		</div>
+<!-- 		<div class="friendlink">
+		<ul>
+		<li><a href="#" class="a1">科学松鼠会</a></li>
+		<li><a href="#" class="a2">蝌蚪五线谱</a></li>
+		<li><a href="#" class="a3">中国科普网</a></li>
+		<li><a href="#" class="a4"></a></li>
+		</ul>
+		</div> -->
+<!-- 		<div class="copyright">
+			<div class="l">&copy; Copyright &copy; 2014.</div>
+		</div> -->
+
+<a href="#" title="返回顶部" id="goTop"></a>
+</body>
+</html>
+<?php
+mysql_free_result($recent_article1);
+
+mysql_free_result($Recent_article2);
+
+mysql_free_result($Recent_article3);
+
+mysql_free_result($Recent_article4);
+
+mysql_free_result($Technology1);
+
+mysql_free_result($Technology2);
+
+mysql_free_result($Technology3);
+
+mysql_free_result($Question1);
+
+mysql_free_result($Question2);
+
+mysql_free_result($Question3);
+
+mysql_free_result($Stories1);
+
+mysql_free_result($Stories2);
+
+mysql_free_result($Stories3);
+?>

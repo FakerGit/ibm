@@ -1,0 +1,245 @@
+<?php require_once('../Connections/weblib.php'); ?>
+
+<!DOCTYPE <html>
+<html>
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <title>知识问答 | 大型主机科普网站</title> 
+  <meta name="keywords" content="" /> 
+  <meta name="description" content="" /> 
+  <link type="text/css" rel="stylesheet" href="../css/style.css" /> 
+  <script language="javascript" type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
+ </head> 
+ <body> 
+  <div id="topBar"> 
+   <div class="wrapper"> 
+    <div class="l">
+      您好，欢迎访问大型主机科普网站！ 
+    </div> 
+    <div class="r"> 
+     <a href="#" onclick="window.external.AddFavorite(location.href,'');">加入收藏</a> 
+     <a href="#" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage(location.href);">设为首页</a> 
+     <span> <a href="" target="_blank">登录</a>| <a href="" target="_blank">注册</a>| <a href="" target="_blank">管理员入口</a> </span> 
+    </div> 
+   </div> 
+  </div> 
+  <div id="header"> 
+   <div class="wrapper"> 
+    <div class="logo"> 
+     <a href="/"><img src="../images/logo3.png" alt="大型主机科普网站" /></a> 
+    </div> 
+   </div> 
+  </div> 
+  <div id="nav"> 
+   <ul> 
+    <li><a href="../index.html" class="a1">首页</a></li> 
+    <li><a href="../recent.php" class="a2">科技快讯</a></li> 
+    <li><a href="../technology.php" class="a3">主机技术</a></li> 
+    <li><a href="../medias.php" class="a4">科普乐园</a></li> 
+    <li><a href="../q_a.php" class="a5">知识问答</a></li> 
+    <form class="search" method="get" action="" target="_blank"> 
+     <p> <input class="searchTxt" value="" maxlength="30" name="wd" type="text" style="background-image:url('../images/search_bg.png') " /> <input src="../images/search_icon.png" class="search_icon" name="" type="image" /> </p> 
+    </form> 
+   </ul> 
+  </div> 
+  <script type="text/javascript">
+function select_search_type(n){
+	document.getElementById('search_type1').className='';
+	document.getElementById('search_type2').className='';
+	document.getElementById('search_type3').className='';
+	document.getElementById('search_type'+n).className='current';
+	document.getElementById('search_type').value=n;
+}
+</script> 
+  <div id="main"> 
+   <div id="page"> 
+    <div class="pageLeft"> 
+     <div id="qaMenu"> 
+     </div> 
+	 <div class="map2">
+	 <a target="_blank" href="http://j.map.baidu.com/f_v1z" ><img src="../images/ditu.png" /></a>
+	 </div>
+    </div> 
+    <div class="pageRight"> 
+      <div class="title_pic"> 
+       <img src="../images/qa_pic.png" /> 
+      </div> 
+<div id="current">
+   所在位置：&nbsp;&nbsp;
+   <a href="" class="curr">首页</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+   <a href="" class="curr">报名管理</a>
+  </div>
+      <div id="qaMain">
+       <?php
+	   		//更新表
+	   		function updateApply($deal){
+			if(is_array($deal) && !empty($deal)){  
+			foreach($deal as $key=>$value){
+	        $sql= "UPDATE apply SET deal=2 WHERE id='$key';";
+		 	mysql_query($sql);
+			header("refresh:1;url=mail.php");
+			}
+		}
+}
+			//分页码
+			$num_pages=5;
+			 function pagebar($page_count, $page, $num) {   
+			 $num = min($page_count, $num); //处理显示的页码数大于总页数的情况   
+	         if($page >$page_count || $page < 1) return; //处理非法页号的情况	
+	         $end = $page + floor($num/2) <= $page_count ? $page + floor($num/2) : $page_count; //计算结束页号
+	         $start = $end - $num + 1; //计算开始页号 
+		     if($start < 1) { //处理开始页号小于1的情况 
+		      $end -= $start - 1;     
+			  $start = 1;  
+			 }   
+			for($i=$start; $i<=$end; $i++) { //输出分页条，添加链接样式
+				     if($i == $page){
+			?>
+            <a href="manageApply.php?page=<?php echo $i ;?>"  ><?php echo "[$i]" ;?></a>
+            <?php
+					 }
+					  else {
+			?>
+            <a href="manageApply.php?page=<?php echo $i ;?>"  ><?php echo $i ;?></a>
+            <?php
+					  }
+			}   
+		}   
+		
+			if(isset($_POST['save'])){
+				if(isset($_POST['id'])){
+					$deal = $_POST['id'];
+					updateApply($deal);
+				}
+			}
+			//获取当前页数
+			if(isset($_GET['page'])){
+				$page=intval($_GET['page']);
+			}
+			else{
+				$page=1;
+			}
+				//每页数量
+				$pageSize=4;
+				mysql_select_db($database_weblib, $weblib);
+				$sql="select count(*) as amount from apply where deal=0" ;
+				$result=mysql_query($sql)or die(mysql_error());
+				$num=mysql_fetch_array($result);
+				$amount=$num[0];
+				//获取页数
+				if($amount){
+					if($amount<$pageSize){$page_count=1;}
+					if($amount%$pageSize){
+						$page_count=(int)($amount/$pageSize)+1;
+					}else{
+						$page_count=$amount/$pageSize;
+					}
+				}else{
+					$page_count=0;
+				}
+
+			
+			//获取数据
+			$pages=($page-1)*$pageSize;
+			if($amount){
+				mysql_select_db($database_weblib, $weblib);
+				$sql="select* from apply where deal=0 order by id  limit $pages,$pageSize ";    
+				$result=mysql_query($sql)or die(mysql_error());
+				while($row=mysql_fetch_array($result)){
+					$rowset[]=$row;
+				}
+			}else{
+				$rowset=array();
+			}
+		?>
+      <!--  使用for循环循环输出-->
+       <div class="glist">   
+        <div class="gtitle"> 
+        <form  id="sub"  method="post" action="manageApply.php" id="applyform" target="_self">
+        <?php
+		if($amount>0){
+		$records=$pageSize;
+		if($page==$page_count)
+			$records=$amount-($pageSize*($page-1));
+		for($i=0;$i<$records;$i++){
+			?><tr>
+         <p class="strong"><input type="checkbox" name="id[<?php echo $rowset[$i]['id'];?>]" value="1" />
+          <?php 
+		  echo $rowset[$i]['id'];echo " ";
+		   echo $rowset[$i]['mail'];echo " ";
+		  echo $rowset[$i]['name'];echo " "; 
+		  echo $rowset[$i]['age'];echo " ";
+		  echo $rowset[$i]['tel'];echo " "; 
+		  echo $rowset[$i]['time'];echo " "; 
+		  echo $rowset[$i]['members'];
+		  echo " ";?> </p> </tr>
+  		<?php
+		}
+			}else{
+				echo "暂时没有报名的人";
+			}
+			?>
+            </table>
+        <p><input type="submit" name="save" value="通过" onclick="return sure();"/>&nbsp;&nbsp;<input type="submit" name="save" value="拒绝" onclick="refuse();"/></p>
+		</form>
+        </div> 
+       </div> 
+       </div> 
+       
+<script type = "text/javascript" language = "javascript">  
+	function sure(){   
+		return confirm("确定要提交吗？");
+	}
+	function refuse(){
+		if(confirm("确认提交？")){
+			document.applyform.action="refuseApply.php";
+			document.applyform.submit();
+		}
+	} 
+</script>
+       
+		 <?php
+	  	if($page!=1){
+	  ?>
+      <a href="manageApply.php?page=1" >首页</a>
+      <?php
+	  }
+	  	pagebar($page_count,$page,$num_pages);
+		
+	  	if($page!=$page_count){
+		?>
+        <a href="manageApply.php?page=<?php echo $page_count;?>">末页</a>
+        <?php
+		}
+		?>
+      
+    </div> 
+    <div class="clearit"></div> 
+   </div> 
+  </div> 
+  <div id="footer"> 
+   <div class="nav"> 
+    <ul> 
+     <li class="jianjie"><a href="#" class="a1">华工IBM中心简介</a></li> 
+     <li><a href="#" class="a2">网站简介</a></li> 
+     <li><a href="#" class="a3">联系我们</a></li> 
+     <li><a href="#" class="a4">留言建议</a></li> 
+     <li><a href="#" class="a5">友情链接</a></li> 
+    </ul> 
+   </div> 
+   <!-- 		<div class="friendlink">
+		<ul>
+		<li><a href="#" class="a1">科学松鼠会</a></li>
+		<li><a href="#" class="a2">蝌蚪五线谱</a></li>
+		<li><a href="#" class="a3">中国科普网</a></li>
+		<li><a href="#" class="a4"></a></li>
+		</ul>
+		</div> --> 
+   <!-- 		<div class="copyright">
+			<div class="l">&copy; Copyright &copy; 2014.</div>
+		</div> --> 
+  </div> 
+  <a href="#" title="返回顶部" id="goTop"></a>   
+ </body>
+</html>
+

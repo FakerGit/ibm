@@ -1,0 +1,25 @@
+<?php require_once('Connections/weblib.php'); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>留言管理</title>
+</head>
+
+<body>
+<center>
+<?php
+header("Content-Type:text/html; charset=utf-8");
+$sql = "select * from message";
+$result = mysql_query($sql);
+echo"<table border='3'>";
+echo"<tr><th>ID</th><th>用户ID</th><th>发表时间</th><th>留言内容</th></tr>";
+while($row=mysql_fetch_assoc($result)){
+	echo"<tr><td>".$row["id"]."</td><td>".$row["uid"]."</td><td>".$row["time"]."</td><td>".$row["content"]."</td></tr>";
+}
+echo"</table>";
+echo"</center>";
+?>
+</center>
+</body>
+</html>

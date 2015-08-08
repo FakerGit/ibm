@@ -1,0 +1,13 @@
+<?php require_once('Connections/weblib.php'); ?>
+
+<?php
+header("Content-Type:text/html; charset=utf-8");
+$aid = $_GET["aid"];
+$sql = "select * from article where aid = '$aid'";
+$result = mysql_query($sql);
+$row= mysql_fetch_array($result);
+$content = file_get_contents($row["source"]);
+echo nl2br($content);
+echo "<br/>";
+echo "<input type='button' onclick='javascript:history.go(-1)' value='返回' />";
+?>

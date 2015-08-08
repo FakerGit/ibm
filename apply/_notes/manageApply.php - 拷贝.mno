@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Question1" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+	<infoitem key="UD_Question2" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+	<infoitem key="UD_Question3" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+	<infoitem key="UD_Question4" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+</info>

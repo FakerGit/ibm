@@ -1,0 +1,51 @@
+<?php require_once('Connections/weblib.php'); ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>查看与审核</title>
+</head>
+<script language="javascript">
+function showreason(){
+	var result = document.getElementById("result").value;
+	var reason = document.getElementById("reason");
+	if(result==1){
+		reason.style.display = "none";
+	}
+	else{
+		reason.style.display = "block";
+	}
+}
+</script>
+
+
+<body>
+
+<?php
+header("Content-Type:text/html; charset=utf-8");
+$aid = $_GET["aid"];
+$sql = "select * from article where aid = '$aid'";
+$result = mysql_query($sql);
+$row= mysql_fetch_array($result);
+$content = file_get_contents($row["source"]);
+echo nl2br($content);
+?>
+<form action="reviewcommit.php" method="post">
+<fieldset>
+                <label class="lab">审核结果：</label>
+                <select id="result" name="result" onchange="showreason()">
+                <option value="1">通过</option>
+                <option value="0">不通过</option>
+                </select>
+                <div id="reason" style="display:none">
+                <label class="lab" style="vertical-align:top">原因：</label>
+                <textarea name="detail" id="detail" cols="60" rows="10" style="resize:none"></textarea>
+                </div>
+                <br/>
+            <button class="u-btn" type="submit" name="submit" id="submit">提交</button>&nbsp;
+            <button class="u-btn" type="reset" onclick="showreason()">重置</button>
+            <input type="hidden" id="aid" name="aid" value="<?php echo $aid ?>" />
+        </fieldset>
+</body>
+</html>

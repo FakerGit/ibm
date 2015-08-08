@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>修改用户信息</title>
+</head>
+<script src="../js/jquery-1.11.2.min.js">
+</script>
+<?php 
+    require_once('mysql.func.php');
+	$user_display=new Show;
+	$id=$_REQUEST['id'];
+	$sql="select * from users where id='{$id}'";
+	$result=mysql_query($sql)or die(mysql_error());
+	$row=mysql_fetch_array($result);
+	print_r($row);
+?>
+<body>
+<script type="text/javascript">
+	function edit_user(){
+		var id=$("#id").val();
+		var username=$("#username").val();
+			var pwd=$("#pwd").val();
+			var sex=$("#sex").val();
+			var email=$("#email").val();
+			var authority=$("#authority").val();
+			var act="edit";
+		$.ajax({
+				type:"POST",
+				url:"doAdminAction.php?",
+				data:"act="+act+"&id="+id+"&username="+username+"&pwd="+pwd+"&sex="+sex+"&email="+email+"&authority="+authority,beforeSend: function(){},
+				success:function(msg){
+					alert(msg);
+					if(msg==1)
+					{
+						alert("修改成功");
+						window.close();
+					}
+				}
+			});
+	}
+</script>
+<form action="sub.php?act=edit" id="edit" name="edit" method="post">
+<table  id="userList" align="left" border="2" cellpadding="10">    
+    <tr align="center">      
+    <td>用户名</td>     
+    <td>密码</td>     
+    <td>性别</td>     
+    <td>邮箱</td>     
+    <td>权限</td>   
+    </tr>
+    <tr>
+    <td>
+    <input type="text" name="username" id="username" value="<?php echo $row['username']?>" /></td>
+    <td>
+    <input type="text" name="pwd" id="pwd" value="<?php echo $row['password']?>" /></td>
+    <td>
+    <input type="text" name="sex" id="sex" value="<?php echo $row['sex']?>" /></td>
+    <td>
+    <input type="text" name="email" id="email" value="<?php echo $row['email']?>" /></td>
+	<td><input type="button" value="保存" onClick="edit_user()" /></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

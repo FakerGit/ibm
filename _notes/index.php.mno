@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_recent_article1" value="name:id;datatype:int,name:date;datatype:datetime,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob" />
+	<infoitem key="UD_Recordset1" value="name:id;datatype:int,name:date;datatype:datetime,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob" />
+	<infoitem key="UD_recent_article2" value="name:id;datatype:int,name:date;datatype:datetime,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob" />
+	<infoitem key="UD_Recent_article2" value="name:id;datatype:int,name:date;datatype:datetime,name:occurence;datatype:datetime,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob" />
+	<infoitem key="UD_Recent_article3" value="name:id;datatype:int,name:date;datatype:datetime,name:occurence;datatype:datetime,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob" />
+	<infoitem key="UD_Recent_article4" value="name:id;datatype:int,name:date;datatype:datetime,name:occurence;datatype:datetime,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob" />
+	<infoitem key="UD_Technology1" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+	<infoitem key="UD_Technology2" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+	<infoitem key="UD_Technology3" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+	<infoitem key="UD_Question1" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+	<infoitem key="UD_Question2" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+	<infoitem key="UD_Question3" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+	<infoitem key="UD_Stories1" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+	<infoitem key="UD_Stories2" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+	<infoitem key="UD_Stories3" value="name:id;datatype:int,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob,name:date;datatype:datetime,name:occurence;datatype:datetime" />
+	<infoitem key="UD_Recent_article1" value="name:id;datatype:int,name:date;datatype:datetime,name:occurence;datatype:datetime,name:title;datatype:string,name:pic;datatype:string,name:source;datatype:string,name:introduction;datatype:blob" />
+</info>

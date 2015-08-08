@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+    <title>navbar</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <style type="text/css">
+        .sidebar-wrap{float: left;width: 189px;min-height:700px;background: #f2f2f2;border-right:1px solid #ccc;}
+        .sidebar-content{padding-top: 5px;}
+        .sidebar-list li{border:1px solid #e5e5e5;border-width:1px 0;}
+        .sidebar-list li .icon-font{margin-right: 5px;color: #888;font-size: 14px;}
+        .sidebar-list li a{padding: 0 16px 0 20px;display: block;height: 38px;line-height: 38px;color: #333;}
+        .sidebar-list li a:hover{background: #fff;color: #1963AA;}
+    </style>
+</head>
+
+<body>
+<div class="container clearfix">
+    <div class="sidebar-wrap">
+        <div class="sidebar-content">
+            <ul class="sidebar-list">
+                <li><a href="admin/user_manage.php" target="mainframe">用户管理</a></li>
+                <li><a href="rbac.php" target="mainframe">角色权限管理</a></li>
+                <li><a href="messagemanage.php" target="mainframe">留言管理</a></li>
+                <li><a href="dboperation.php" target="mainframe">数据库备份与恢复</a></li>
+                <li><a href="">报名参观审核</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

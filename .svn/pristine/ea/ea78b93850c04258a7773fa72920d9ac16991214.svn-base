@@ -1,0 +1,85 @@
+<?php require_once('Connections/weblib.php'); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>角色权限管理</title>
+</head>
+<script language="javascript">
+function getvalue(id){
+	var rolenum = document.getElementById(id).value;
+	var div_selected = document.getElementById(rolenum);
+	var div_unselected = document.getElementById(3-rolenum);
+	div_selected.style.display = "block";
+	div_unselected.style.display = "none";
+}
+</script>
+
+<body>
+<center>
+<form name="table" method="post">
+<table border="3">
+<tr>
+<th>用户</th>
+<th>角色</th>
+<th>操作权限</th>
+<th>操作</th>
+</tr>
+<?php
+$sql = "select * from users,users_role,role where users.uid=users_role.uid and users_role.rid=role.rid";
+$result = mysql_query($sql);
+//$sql3 = "select * from role";//读取角色表信息
+//$role_result = mysql_query($sql3);
+while($row=mysql_fetch_assoc($result)){
+ $rid = $row["rid"];
+ echo"<tr>";//输出一条权限记录
+ echo"<td>".$row["username"]."</td>";//输出用户名
+ //echo"<select onchange='getvalue(id)'>";//输出角色名到下拉框中
+ //if($rid==1){
+	 echo"<td>".$row["rolename"]."</td>";//输出角色名
+	 //while($row3=mysql_fetch_assoc($role_result)){
+		 //if($row3["rid"]!=$rid){
+		// echo"<option value='2'>".$row3["rolename"]."</option>";//设置其余可选项
+		 //}
+	 //}
+ //else{
+	 //echo"<option value='2' selected='selected'>".$row1["rolename"]."</option>";//将数据库记录作为默认选中值
+	 //while($row3=mysql_fetch_assoc($role_result)){
+		 //if($row3["rid"]!=$rid){
+		 //echo"<option value='1'>".$row3["rolename"]."</option>";//设置其余可选项
+		 //}
+	 //}
+ //}
+ $sql1 = "select authorityname from role_authority,authority where role_authority.auid=authority.auid and role_authority.rid='$rid'";
+ $result1 = mysql_query($sql1);
+ echo"<td>"; 
+ while($row1=mysql_fetch_assoc($result1)){
+	echo $row1["authorityname"]."  ";
+ }
+ echo"</td>";
+ 
+ echo"</tr>";
+}
+/*<tr>
+<td>张三</td>
+<td>
+<select name="role" id="role" onchange="getvalue()">
+<option value="0">公众</option>
+<option value="1">发布者</option>
+</select>
+</td>
+<td>
+<div id="0" style="display:none">
+<input type="checkbox" />浏览文章
+</div>
+<div id="1" style="display:none">
+<input type="checkbox" />编辑文章<input type="checkbox" />修改文章<input type="checkbox" />审核文章
+</div>
+</td>
+</tr>*/
+?>
+</table>
+</form>
+</center>
+</body>
+</html>

@@ -1,0 +1,43 @@
+html{height:100%;}
+body{font:14px/1.5 '微软雅黑';word-wrap:break-word;word-break:break-all;-webkit-text-size-adjust:none;background:#fff;color:#333;}
+body,dl,dd,h1,h2,h3,h4,h5,h6,p,form,ul,ol,blockquote{margin:0}
+input{vertical-align:middle;padding:2px;margin:0}
+table{border-collapse:collapse;border-spacing:0}
+em,i,cite,blockquote{font-style:normal}
+ul,ol{list-style:none outside;padding:0}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+textarea{overflow-y:auto;padding:3px}
+a{color:#428bca;text-decoration:none;outline:0}
+a:hover,a:active{color:#2a6496;text-decoration:none;}
+a:focus{outline:0;}
+button::-moz-focus-inner{border:0;padding:0;}
+figure{margin:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+.clear{clear:both}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{*height:1%;}
+.white,.white a:link,.white a:visited{color:#fff;}
+.white a:hover{color:#ff0;}
+
+.topbar-wrap{height:50px;line-height:50px;background:#1A1A1A;}
+.topbar-logo-wrap{float:left;}
+.topbar-inner{font-size:18px;}
+.topbar-logo{float:left;width:150px;text-align:center;}
+.navbar-list{float:left;}
+.top-info-wrap{float:right;}
+.navbar-list{}
+.navbar-list li{float:left;}
+.navbar-list li a{float:left;margin-right:5px;padding:0 25px;text-shadow:1px 1px 1px #000;}
+.navbar-list li a:hover{background:#343434;}
+.navbar-list li a.on{color:#fff;text-shadow:1px 1px 1px #003;background:#033b70;}
+.top-info-list li{float:left;}
+.top-info-list li a,.top-info-list li p{float:left;margin-left:5px;padding:0 20px;display:inline;zoom:1;}
+.top-info-list li a:hover{background:#343434;}
+.top-info-list li p{font-size: 0.7em;}
+
+//信息表格
+#talbe-content{
+	padding:10px;
+	width:82%;
+	float:right;
+}
